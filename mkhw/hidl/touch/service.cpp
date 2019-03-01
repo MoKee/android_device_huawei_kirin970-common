@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "vendor.lineage.touch@1.0-service.kirin970"
+#define LOG_TAG "vendor.mokee.touch@1.0-service.kirin970"
 
 #include <android-base/logging.h>
 #include <binder/ProcessState.h>
@@ -29,10 +29,10 @@ using android::sp;
 using android::status_t;
 using android::OK;
 
-using ::vendor::lineage::touch::V1_0::IGloveMode;
-using ::vendor::lineage::touch::V1_0::kirin970::GloveMode;
-using ::vendor::lineage::touch::V1_0::IKeyDisabler;
-using ::vendor::lineage::touch::V1_0::kirin970::KeyDisabler;
+using ::vendor::mokee::touch::V1_0::IGloveMode;
+using ::vendor::mokee::touch::V1_0::kirin970::GloveMode;
+using ::vendor::mokee::touch::V1_0::IKeyDisabler;
+using ::vendor::mokee::touch::V1_0::kirin970::KeyDisabler;
 
 int main() {
     sp<IGloveMode> gloveMode;

@@ -19,7 +19,7 @@
 #include <fstream>
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace touch {
 namespace V1_0 {
 namespace kirin970 {
@@ -36,7 +36,7 @@ KeyDisabler::KeyDisabler() {
 }
 
 
-// Methods from ::vendor::lineage::touch::V1_0::IGloveMode follow.
+// Methods from ::vendor::mokee::touch::V1_0::IGloveMode follow.
 Return<bool> KeyDisabler::isEnabled() {
     std::ifstream file(kFingerprintNavPath);
     int result;
@@ -57,5 +57,5 @@ Return<bool> KeyDisabler::setEnabled(bool enabled) {
 }  // namespace kirin970
 }  // namespace V1_0
 }  // namespace touch
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor

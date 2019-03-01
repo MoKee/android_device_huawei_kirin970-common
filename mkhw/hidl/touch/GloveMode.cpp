@@ -14,40 +14,35 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_TOUCH_V1_0_GLOVEMODE_H
-#define VENDOR_LINEAGE_TOUCH_V1_0_GLOVEMODE_H
+#include "GloveMode.h"
 
-#include <vendor/lineage/touch/1.0/IGloveMode.h>
-#include <hidl/MQDescriptor.h>
-#include <hidl/Status.h>
+#include <fstream>
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace touch {
 namespace V1_0 {
 namespace kirin970 {
 
-using ::android::hardware::hidl_array;
-using ::android::hardware::hidl_memory;
-using ::android::hardware::hidl_string;
-using ::android::hardware::hidl_vec;
-using ::android::hardware::Return;
-using ::android::hardware::Void;
-using ::android::sp;
+static constexpr const char *kTouchGlovePath = "/sys/touchscreen/touch_glove";
 
-class GloveMode : public IGloveMode {
-  public:
-    GloveMode() = default;
+// Methods from ::vendor::mokee::touch::V1_0::IGloveMode follow.
+Return<bool> GloveMode::isEnabled() {
+    std::ifstream file(kTouchGlovePath);
+    int result;
 
-    // Methods from ::vendor::lineage::touch::V1_0::IGloveMode follow.
-    Return<bool> isEnabled() override;
-    Return<bool> setEnabled(bool enabled) override;
-};
+    file >> result;
+    return !file.fail() && result > 0;
+}
+
+Return<bool> GloveMode::setEnabled(bool enabled) {
+    std::ofstream file(kTouchGlovePath);
+    file << (enabled ? "1" : "0");
+    return !file.fail();
+}
 
 }  // namespace kirin970
 }  // namespace V1_0
 }  // namespace touch
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor
-
-#endif  // VENDOR_LINEAGE_TOUCH_V1_0_GLOVEMODE_H

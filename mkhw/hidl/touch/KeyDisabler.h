@@ -14,16 +14,16 @@
  * limitations under the License.
  */
 
-#ifndef VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H
-#define VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H
+#ifndef VENDOR_MOKEE_TOUCH_V1_0_KEYDISABLER_H
+#define VENDOR_MOKEE_TOUCH_V1_0_KEYDISABLER_H
 
-#include <vendor/lineage/touch/1.0/IKeyDisabler.h>
+#include <vendor/mokee/touch/1.0/IKeyDisabler.h>
 #include <vendor/huawei/hardware/biometrics/fingerprint/2.1/IExtBiometricsFingerprint.h>
 #include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
 
 namespace vendor {
-namespace lineage {
+namespace mokee {
 namespace touch {
 namespace V1_0 {
 namespace kirin970 {
@@ -42,7 +42,7 @@ class KeyDisabler : public IKeyDisabler {
   public:
     KeyDisabler();
 
-    // Methods from ::vendor::lineage::touch::V1_0::IKeyDisabler follow.
+    // Methods from ::vendor::mokee::touch::V1_0::IKeyDisabler follow.
     Return<bool> isEnabled() override;
     Return<bool> setEnabled(bool enabled) override;
 
@@ -53,7 +53,7 @@ class KeyDisabler : public IKeyDisabler {
 }  // namespace kirin970
 }  // namespace V1_0
 }  // namespace touch
-}  // namespace lineage
+}  // namespace mokee
 }  // namespace vendor
 
-#endif  // VENDOR_LINEAGE_TOUCH_V1_0_KEYDISABLER_H
+#endif  // VENDOR_MOKEE_TOUCH_V1_0_KEYDISABLER_H
